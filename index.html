@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Print On Demand</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if IE
+      ]><script type="text/javascript" src="js/excanvas.js"></script
+    ><![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/fabric.js"></script>
+    <!-- Tailwind css -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- Le styles -->
+    <!-- font awesome start -->
+    <!-- canvas to blop cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.29.0/js/canvas-to-blob.js" integrity="sha512-QinObFNs7mVBtipyw8BEERLHKQ1P2n5Wbxd8Kt+G9ST/lp99qZKlJUUsNSZYSPf/yGL7eNN0UCcDaMiZjXMtGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.29.0/js/canvas-to-blob.min.js" integrity="sha512-zkt2aBQ0jhSXjI6VhJegNqBN3Kqlbi7PxpxOpELGoKtRGSuPOVGvetuTixdhQSuRefsFKroRgWRwQDpRcMd3+A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <!-- emoji -->
+    <link rel="stylesheet" href="css/emojionearea.min.css">
+    <script src="js/emojionearea.min.js"></script>
+    <!-- font awesome end -->
+    <link type="text/css" rel="stylesheet" href="css/jquery.miniColors.css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <script src="js/FileSaver.min.js"></script>
+    <script src="js/blop.js"></script>
+    <script type="text/javascript"></script>
+    <!-- custom css file -->
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+
+  <body
+    class="preview"
+    data-spy="scroll"
+    data-target=".subnav"
+    data-offset="80"
+  >
+    <!-- Navbar
+    ================================================== -->
+
+    <div class="container">
+      <section id="typography">
+
+
+        <!-- Headings & Paragraph Copy -->
+        <div class="row">
+          <div class="span3">
+            <div class="tabbable">
+            
+              <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                  <div class="well">
+                    <p style="font-weight: 600; color: black">
+                      Enter Text Below
+                    </p>
+                    <div class="input-append">
+                      <input
+                        class="span2 teeText"
+                        id="text-string"
+                        type="text"
+                        placeholder="add text here..."
+                        name=""
+                        id=""
+                        cols="30"
+                        rows="1"
+                      ></input>
+
+                      <button id="add-text" class="btn" title="Add text">
+                       <i class="fas fa-caret-right"></i>
+                      </button>
+                    </div>
+                    <!--					      	<h3>Tee Styles</h3>-->
+                    <!--						      <p>-->
+                    <!--   <select id="tshirttype">
+                      <option value="img/crew_front.png" selected="selected">
+                        Short Sleeve Shirts
+                      </option>
+                      <option value="img/mens_longsleeve_front.png">
+                        Long Sleeve Shirts
+                      </option>
+                      <option value="img/mens_hoodie_front.png">Hoodies</option>
+                      <option value="img/mens_tank_front.png">Tank tops</option>
+                    </select> -->
+                    <!--						      </p>-->
+                  </div>
+
+                  <!-- uploading image/imoji/vector -->
+
+                  <div class="well">
+                    <h4 style="padding-bottom: 5px">Image</h4>
+                    
+                     <div class="input-file-container">  
+                      <input class="input-file" id="myImg" type="file"
+                        accept="image/*">
+                       <label tabindex="0" for="my-file" class="input-file-trigger"> <i class="fas fa-cloud-upload-alt"></i>Upload Image</label>
+                      </div>
+                    <div class="hr">
+                      <span>OR</span>
+                    </div>
+                    <div style="margin-top: 10px">
+                      <button
+                        class="img-upload-btn"
+                        style="background: #ec971f"
+                      >
+                        <i class="fas fa-search"></i> Browse Artwork
+                      </button>
+                    </div>
+                    <div class="hr">
+                      <span>OR</span>
+                    </div>
+                    <div style="margin-top: 10px">
+                      <button
+                      id="emoji-picker"
+                        class="img-upload-btn"
+                        style="background: #025aa5"
+                      >
+                        <i class="far fa-grin"></i> Select Emoji
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="tab2">
+                  <div class="well">
+                    <div class="input-append">
+                      <input
+                        class="span2"
+                        id="text-string"
+                        type="text"
+                        placeholder="add text here..."
+                      /><button id="add-text" class="btn" title="Add text">
+                        <i class="icon-share-alt"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="span6">
+            <div align="center" style="min-height: 32px">
+              <div class="clearfix">
+                <div
+                  class="btn-group inline pull-left"
+                  id="texteditor"
+                  style="display: none"
+                >
+                  <button
+                    id="font-family"
+                    class="btn dropdown-toggle"
+                    data-toggle="dropdown"
+                    title="Font Style"
+                  >
+                    <i class="icon-font" style="width: 19px; height: 19px"></i>
+                  </button>
+                  <ul
+                    class="dropdown-menu"
+                    role="menu"
+                    aria-labelledby="font-family-X"
+                  >
+                    <li>
+                      <a
+                        tabindex="-1"
+                        href="#"
+                        onclick="setFont('Arial');"
+                        class="Arial"
+                        >Arial</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        tabindex="-1"
+                        href="#"
+                        onclick="setFont('Helvetica');"
+                        class="Helvetica"
+                        >Helvetica</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        tabindex="-1"
+                        href="#"
+                        onclick="setFont('Myriad Pro');"
+                        class="MyriadPro"
+                        >Myriad Pro</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        tabindex="-1"
+                        href="#"
+                        onclick="setFont('Delicious');"
+                        class="Delicious"
+                        >Delicious</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        tabindex="-1"
+                        href="#"
+                        onclick="setFont('Verdana');"
+                        class="Verdana"
+                        >Verdana</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        tabindex="-1"
+                        href="#"
+                        onclick="setFont('Georgia');"
+                        class="Georgia"
+                        >Georgia</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        tabindex="-1"
+                        href="#"
+                        onclick="setFont('Courier');"
+                        class="Courier"
+                        >Courier</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        tabindex="-1"
+                        href="#"
+                        onclick="setFont('Comic Sans MS');"
+                        class="ComicSansMS"
+                        >Comic Sans MS</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        tabindex="-1"
+                        href="#"
+                        onclick="setFont('Impact');"
+                        class="Impact"
+                        >Impact</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        tabindex="-1"
+                        href="#"
+                        onclick="setFont('Monaco');"
+                        class="Monaco"
+                        >Monaco</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        tabindex="-1"
+                        href="#"
+                        onclick="setFont('Optima');"
+                        class="Optima"
+                        >Optima</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        tabindex="-1"
+                        href="#"
+                        onclick="setFont('Hoefler Text');"
+                        class="Hoefler Text"
+                        >Hoefler Text</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        tabindex="-1"
+                        href="#"
+                        onclick="setFont('Plaster');"
+                        class="Plaster"
+                        >Plaster</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        tabindex="-1"
+                        href="#"
+                        onclick="setFont('Engagement');"
+                        class="Engagement"
+                        >Engagement</a
+                      >
+                    </li>
+                  </ul>
+                  <button id="text-bold" class="btn" data-original-title="Bold">
+                    <img src="img/font_bold.png" height="" width="" />
+                  </button>
+                  <button
+                    id="text-italic"
+                    class="btn"
+                    data-original-title="Italic"
+                  >
+                    <img src="img/font_italic.png" height="" width="" />
+                  </button>
+                  <button id="text-strike" class="btn" title="Strike" style="">
+                    <img src="img/font_strikethrough.png" height="" width="" />
+                  </button>
+                  <button
+                    id="text-underline"
+                    class="btn"
+                    title="Underline"
+                    style=""
+                  >
+                    <img src="img/font_underline.png" />
+                  </button>
+                  <a
+                    class="btn"
+                    href="#"
+                    rel="tooltip"
+                    data-placement="top"
+                    data-original-title="Font Color"
+                    ><input
+                      type="hidden"
+                      id="text-fontcolor"
+                      class="color-picker"
+                      size="7"
+                      value="#000000"
+                  /></a>
+                  <a
+                    class="btn"
+                    href="#"
+                    rel="tooltip"
+                    data-placement="top"
+                    data-original-title="Font Border Color"
+                    ><input
+                      type="hidden"
+                      id="text-strokecolor"
+                      class="color-picker"
+                      size="7"
+                      value="#000000"
+                  /></a>
+                  - Background
+                  <input
+                    type="hidden"
+                    id="text-bgcolor"
+                    class="color-picker"
+                    size="7"
+                    value="#ffffff"
+                  />
+                  -
+                </div>
+                <div
+                  class="pull-right"
+                  align=""
+                  id="imageeditor"
+                  style="display: none"
+                >
+                  <div class="btn-group">
+                    <button
+                      class="btn"
+                      id="bring-to-front"
+                      title="Bring to Front"
+                    >
+                      <i
+                        class="icon-fast-backward rotate"
+                        style="height: 19px"
+                      ></i>
+                    </button>
+                    <button class="btn" id="send-to-back" title="Send to Back">
+                      <i
+                        class="icon-fast-forward rotate"
+                        style="height: 19px"
+                      ></i>
+                    </button>
+                    <button
+                      id="flip"
+                      type="button"
+                      class="btn"
+                      title="Show Back View"
+                    >
+                      <i class="icon-retweet" style="height: 19px"></i>
+                    </button>
+                    <button
+                      id="remove-selected"
+                      class="btn"
+                      title="Delete selected item"
+                    >
+                      <i class="icon-trash" style="height: 19px"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--	EDITOR      -->
+           <!--  <button id="flipback" type="button" class="btn" title="Rotate View">
+              <i class="icon-retweet" style="height: 19px"></i>
+            </button> -->
+            <div
+              id="shirtDiv"
+              class="page"
+              style="
+                width: 530px;
+                height: 630px;
+                position: relative;
+                background-color: rgb(255, 255, 255);
+              "
+            >
+              <img
+                name="tshirtview"
+                id="tshirtFacing"
+                src="img/crew_front.png"
+              />
+              <div
+                id="drawingArea"
+                style="
+                  position: absolute;
+                  top: 100px;
+                  left: 160px;
+                  z-index: 10;
+                  width: 200px;
+                  height: 400px;
+                "
+              >
+                <canvas
+                  id="tcanvas"
+                  width="200"
+                  height="400"
+                  class="hover"
+                  style="-webkit-user-select: none"
+                ></canvas>
+              </div>
+            </div>
+            <!--					<div id="shirtBack" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255); display:none;">-->
+            <!--						<img src="img/crew_back.png"></img>-->
+            <!--						<div id="drawingArea" style="position: absolute;top: 100px;left: 160px;z-index: 10;width: 200px;height: 400px;">					-->
+            <!--							<canvas id="backCanvas" width=200 height="400" class="hover" style="-webkit-user-select: none;"></canvas>-->
+            <!--						</div>-->
+            <!--					</div>						-->
+
+            <!--	/EDITOR		-->
+          </div>
+
+          <div class="span3">
+            <div class="well">
+              <h4 class="text-black text-xl">Chose Color</h4>
+              <div class="chose-color-container">
+                <div class="color-preview" style="background: white"></div>
+                <div class="color-preview" style="background: black"></div>
+                <div
+                  class="color-preview"
+                  style="background: rgb(12, 12, 174)"
+                ></div>
+                <div
+                  class="color-preview"
+                  style="background: rgb(42, 41, 41)"
+                ></div>
+                <div class="color-preview" style="background: gray"></div>
+                <div class="color-preview" style="background: #919a54"></div>
+                <div
+                  class="color-preview"
+                  style="background: rgb(127, 50, 50)"
+                ></div>
+              </div>
+
+             
+			      
+
+              <!-- chose type -->
+
+              <div style="padding-top: 15px">
+                <h4>Chose Type</h4>
+                <ul class="media-list teeChooserContainer tshirt-click">
+                  <li id="itemOne" class="media teeChooserSelected teeChooser" onclick='myItem("itemOne")' >
+                    <div onclick='myFunction("img/crew_front.png")' class="list-inline ">
+                      <div class="list-inline-item" style="width: 100%">
+                        <div class="item-thumb-container">
+                          <img 
+                          
+                            src="img/crew_front.png"
+                            alt=""
+                          />
+                        </div>
+                        <p class="font-weight-bold item-qualities">
+                          Short Sleeve Shirts
+                        </p>
+                        <div class="sizes-label"></div>
+                      </div>
+                    </div>
+                  </li>
+                  <li id="itemTwo" class="media teeChooserSelected teeChooser" onclick='myItem("itemTwo")'>
+                    <div onclick='myFunction("img/mens_longsleeve_front.png")' class="list-inline">
+                      <div class="list-inline-item" style="width: 100%">
+                        <div class="item-thumb-container">
+                          <img  src="img/mens_longsleeve_front.png" alt="" />
+                        </div>
+                        <p value='' class="font-weight-bold item-qualities">
+                          Long Sleeve Shirts
+                        </p>
+                        <div class="sizes-label"></div>
+                      </div>
+                    </div>
+                  </li>
+                  <li id="itemThree" class="media teeChooserSelected teeChooser" onclick='myItem("itemThree")'>
+                    <div onclick='myFunction("img/mens_hoodie_front.png")' class="list-inline">
+                      <div class="list-inline-item" style="width: 100%">
+                        <div class="item-thumb-container">
+                          <img  src="img/mens_hoodie_front.png" alt="" />
+                        </div>
+                        <p class="font-weight-bold item-qualities">Hoodies</p>
+                        <div class="sizes-label"></div>
+                      </div>
+                    </div>
+                  </li>
+                  <li id="itemFour" class="media teeChooserSelected teeChooser" onclick='myItem("itemFour")'>
+                    <div onclick='myFunction("img/mens_tank_front.png")'  class="list-inline ">
+                      <div class="list-inline-item" style="width: 100%">
+                        <div class="item-thumb-container">
+                          <img class="tshirt" src="img/mens_tank_front.png" alt=''>
+                        </div>
+                        <p class="font-weight-bold item-qualities">Tank tops</p>
+                        <div class="sizes-label"></div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- new added button -->
+              <div>
+                <button
+                  style="
+                    color: #fff;
+                    background-color: #ec971f;
+                    border-color: #ec971f;
+                  "
+                  class="btn-design"
+                >
+                  Check Price & Buy
+                </button>
+              </div>
+              <div>
+                <button
+                onClick="downloadImage()"
+                  id="download-img"
+                  style="
+                    color: #fff;
+                    background-color: #025aa5;
+                    border-color: #2273bb;
+                  "
+                  class="btn-design"
+                >
+                  Download
+                </button>
+              </div>
+              <!-- button end -->
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section >
+        <div  class="btn-box">
+          <div class="last-btn-design-one">
+            <button id="flipback" type="button" class="btn" title="Rotate View">
+              <!-- <i class="icon-retweet" style="height: 19px"></i> --> Front
+            </button>
+          </div>
+          <div class="last-btn-design-two">
+            Back
+          </div>
+        </div>
+        
+      </section>
+    </div>
+
+    <!-- /container -->
+
+    <!-- Footer ================================================== -->
+    <script>
+
+      /* $(document).ready(function () {
+        $("#tshirttype").change(function () {
+          $("img[name=tshirtview]").attr("src", $(this).val());
+        });
+      }); */
+    
+      $(document).ready(function () {
+  $(document).on("click", ".tshirt-click", () => {
+    var img = $('img',this).attr('src');
+    /* $("img[name=tshirtview]").attr("src",img); */
+    console.log(img);
+  });
+ /*  $('.tshirt-click').click(function(){
+    var src = $('img', this).attr('src');
+    console.log(src);
+})
+ */
+
+});
+ 
+    </script>
+    <script>
+      document.querySelector("html").classList.add('js');
+
+var fileInput  = document.querySelector( ".input-file" ),  
+    button     = document.querySelector( ".input-file-trigger" ),
+    the_return = document.querySelector(".file-return");
+      
+button.addEventListener( "keydown", function( event ) {  
+    if ( event.keyCode == 13 || event.keyCode == 32 ) {  
+        fileInput.focus();  
+    }  
+});
+button.addEventListener( "click", function( event ) {
+   fileInput.focus();
+   return false;
+});  
+fileInput.addEventListener( "change", function( event ) {  
+    the_return.innerHTML = this.value;  
+});
+    </script>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script>
+      function myFunction(y) {
+        $("img[name=tshirtview]").attr("src",y);
+       return y; 
+       
+      }
+ 
+      var valueSelect = $(".tshirt").val();
+        $('.tshirt').click(function(){
+        valueSelect = $('img', this).attr('src');
+      });
+    
+      
+    
+     
+      $("#flipback").click(function () {
+        if (valueSelect === "img/crew_front.png") {
+          if ($(this).attr("data-original-title") == "Show Back View") {
+            $(this).attr("data-original-title", "Show Front View");
+            $("#tshirtFacing").attr("src", "img/crew_back.png");
+            a = JSON.stringify(canvas);
+            canvas.clear();
+            try {
+              var json = JSON.parse(b);
+              canvas.loadFromJSON(b);
+            } catch (e) {}
+          } else {
+            $(this).attr("data-original-title", "Show Back View");
+            $("#tshirtFacing").attr("src", "img/crew_front.png");
+            b = JSON.stringify(canvas);
+            canvas.clear();
+            try {
+              var json = JSON.parse(a);
+              canvas.loadFromJSON(a);
+            } catch (e) {}
+          }
+        } else if (valueSelect === "img/mens_longsleeve_front.png") {
+          if ($(this).attr("data-original-title") == "Show Back View") {
+            $(this).attr("data-original-title", "Show Front View");
+            $("#tshirtFacing").attr("src", "img/mens_longsleeve_back.png");
+            a = JSON.stringify(canvas);
+            canvas.clear();
+            try {
+              var json = JSON.parse(b);
+              canvas.loadFromJSON(b);
+            } catch (e) {}
+          } else {
+            $(this).attr("data-original-title", "Show Back View");
+            $("#tshirtFacing").attr("src", "img/mens_longsleeve_front.png");
+            b = JSON.stringify(canvas);
+            canvas.clear();
+            try {
+              var json = JSON.parse(a);
+              canvas.loadFromJSON(a);
+            } catch (e) {}
+          }
+        } else if (valueSelect === "img/mens_tank_front.png") {
+          if ($(this).attr("data-original-title") == "Show Back View") {
+            $(this).attr("data-original-title", "Show Front View");
+            $("#tshirtFacing").attr("src", "img/mens_tank_back.png");
+            a = JSON.stringify(canvas);
+            canvas.clear();
+            try {
+              var json = JSON.parse(b);
+              canvas.loadFromJSON(b);
+            } catch (e) {}
+          } else {
+            $(this).attr("data-original-title", "Show Back View");
+            $("#tshirtFacing").attr("src", "img/mens_tank_front.png");
+            b = JSON.stringify(canvas);
+            canvas.clear();
+            try {
+              var json = JSON.parse(a);
+              canvas.loadFromJSON(a);
+            } catch (e) {}
+          }
+        } else if (valueSelect === "img/mens_hoodie_front.png") {
+          if ($(this).attr("data-original-title") == "Show Back View") {
+            $(this).attr("data-original-title", "Show Front View");
+            $("#tshirtFacing").attr("src", "img/mens_hoodie_back.png");
+            a = JSON.stringify(canvas);
+            canvas.clear();
+            try {
+              var json = JSON.parse(b);
+              canvas.loadFromJSON(b);
+            } catch (e) {}
+          } else {
+            $(this).attr("data-original-title", "Show Back View");
+            $("#tshirtFacing").attr("src", "img/mens_hoodie_front.png");
+            b = JSON.stringify(canvas);
+            canvas.clear();
+            try {
+              var json = JSON.parse(a);
+              canvas.loadFromJSON(a);
+            } catch (e) {}
+          }
+        }
+        if ($(this).attr("data-original-title") == "Show Back View") {
+          $(this).attr("data-original-title", "Show Front View");
+          $("#tshirtFacing").attr("src", "img/crew_back.png");
+          a = JSON.stringify(canvas);
+          canvas.clear();
+          try {
+            var json = JSON.parse(b);
+            canvas.loadFromJSON(b);
+          } catch (e) {}
+        } else {
+          $(this).attr("data-original-title", "Show Back View");
+          $("#tshirtFacing").attr("src", "img/crew_front.png");
+          b = JSON.stringify(canvas);
+          canvas.clear();
+          try {
+            var json = JSON.parse(a);
+            canvas.loadFromJSON(a);
+          } catch (e) {}
+        }
+        canvas.renderAll();
+        setTimeout(function () {
+          canvas.calcOffset();
+        }, 200);
+      });
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/tshirtEditor.js"></script>
+    <script type="text/javascript" src="js/jquery.miniColors.min.js"></script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(["_setAccount", "UA-35639689-1"]);
+      _gaq.push(["_trackPageview"]);
+
+      (function () {
+        var ga = document.createElement("script");
+        ga.type = "text/javascript";
+        ga.async = true;
+        ga.src =
+          ("https:" == document.location.protocol
+            ? "https://ssl"
+            : "http://www") + ".google-analytics.com/ga.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
